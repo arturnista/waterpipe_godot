@@ -44,8 +44,9 @@ func create_pipe(pos):
 func place_pipe(pipe, position):
 	if !is_inside_map(position):
 		return false
+
 	if tileMap[position] != null:
-		return false	
+		return false
 
 	pipe.set_position(get_world_position(position))
 	tileMap[position] = pipe
@@ -58,6 +59,10 @@ func hold_pipe(position):
 		return null
 
 	var pipe = tileMap[position]
+	
+	if !pipe.is_draggable:
+		return null
+
 	tileMap[position] = null
 	return pipe
 
@@ -82,6 +87,9 @@ func get_map_position(world_position):
 		floor(world_position.y / tile_size)
 	)
 	return map_position
+
+func has_water(position):
+	return waterMap.has(position)
 
 func place_water(position):
 	var water = load(WATER_SCENE)

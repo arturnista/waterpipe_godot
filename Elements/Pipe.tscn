@@ -14,10 +14,18 @@ __meta__ = {
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2( 16, 16 )
 
-[node name="Vertical" type="Sprite" parent="Node2D"]
+[node name="Start" type="Sprite" parent="Node2D"]
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 32, 32 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Vertical" type="Sprite" parent="Node2D"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 32, 32 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -26,7 +34,7 @@ __meta__ = {
 visible = false
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 32, 0, 32, 32 )
+region_rect = Rect2( 64, 0, 32, 32 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -35,7 +43,7 @@ __meta__ = {
 visible = false
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 64, 0, 32, 32 )
+region_rect = Rect2( 96, 0, 32, 32 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -44,7 +52,7 @@ __meta__ = {
 visible = false
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 96, 0, 32, 32 )
+region_rect = Rect2( 128, 0, 32, 32 )
 __meta__ = {
 "_edit_group_": true
 }
