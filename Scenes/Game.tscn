@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/game_controller.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/player_controller.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/tile_map.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/water_controller.gd" type="Script" id=4]
+
+[node name="World" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="Tilemap" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="WaterPath" type="Node" parent="."]
+script = ExtResource( 4 )
