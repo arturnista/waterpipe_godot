@@ -3,6 +3,8 @@
 
 ### Godot ###
 
+Build/
+
 # Godot-specific ignores
 .import/
 export.cfg

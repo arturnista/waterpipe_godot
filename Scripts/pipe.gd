@@ -95,4 +95,6 @@ func init(type):
 			Vector2(0, 1)
 		]
 
+		sprite.modulate = Color.red
+
 	update()

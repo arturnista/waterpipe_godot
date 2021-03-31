@@ -2,70 +2,67 @@ extends Node
 
 class_name GameController
 
+var rng = RandomNumberGenerator.new()
 var tilemap = null
 var waterPath = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	tilemap = get_node("Tilemap")
-	tilemap.create(Vector2(0, 0))
+	var mapSize = Vector2(10, 10)
+	tilemap.create(Vector2(0, 0), mapSize)
+	rng.randomize()
 	var pipe = null
 
-	pipe = tilemap.create_pipe(Vector2(0, 0))
-	pipe.init(PipeDefs.PIPE_TYPE.START)
-	pipe = tilemap.create_pipe(Vector2(0, 1))
-	pipe.init(PipeDefs.PIPE_TYPE.VERTICAL)
-	pipe = tilemap.create_pipe(Vector2(0, 2))
-	pipe.init(PipeDefs.PIPE_TYPE.VERTICAL)
-	pipe = tilemap.create_pipe(Vector2(0, 3))
-	pipe.init(PipeDefs.PIPE_TYPE.VERTICAL)
-	pipe = tilemap.create_pipe(Vector2(0, 4))
-	pipe.init(PipeDefs.PIPE_TYPE.CURVE)
+	var start = Vector2(floor(rng.randf_range(0, mapSize.x)), 0)
+	var end = Vector2(floor(rng.randf_range(0, mapSize.x)), mapSize.y - 1)
 
-	pipe = tilemap.create_pipe(Vector2(1, 4))
-	pipe.init(PipeDefs.PIPE_TYPE.VERTICAL)
-	pipe.turn()
-	pipe = tilemap.create_pipe(Vector2(2, 4))
-	pipe.init(PipeDefs.PIPE_TYPE.VERTICAL)
-	pipe.turn()
-	pipe = tilemap.create_pipe(Vector2(3, 4))
-	pipe.init(PipeDefs.PIPE_TYPE.VERTICAL)
-	pipe.turn()
-	pipe = tilemap.create_pipe(Vector2(4, 4))
-	pipe.init(PipeDefs.PIPE_TYPE.VERTICAL)
-	pipe.turn()
-	pipe = tilemap.create_pipe(Vector2(5, 4))
-	pipe.init(PipeDefs.PIPE_TYPE.VERTICAL)
-	pipe.turn()
-	pipe = tilemap.create_pipe(Vector2(6, 4))
-	pipe.init(PipeDefs.PIPE_TYPE.VERTICAL)
-	pipe.turn()
-	pipe = tilemap.create_pipe(Vector2(7, 4))
-	pipe.init(PipeDefs.PIPE_TYPE.VERTICAL)
-	pipe.turn()
-	pipe = tilemap.create_pipe(Vector2(8, 4))
-	pipe.init(PipeDefs.PIPE_TYPE.VERTICAL)
-	pipe.turn()
+	var startPipe = tilemap.create_pipe(start)
+	startPipe.init(PipeDefs.PIPE_TYPE.START)
 
-	pipe = tilemap.create_pipe(Vector2(9, 4))
-	pipe.init(PipeDefs.PIPE_TYPE.CURVE)
-	pipe.turn()
-	pipe.turn()
+	var endPipe = tilemap.create_pipe(end)
+	endPipe.init(PipeDefs.PIPE_TYPE.END)
+	endPipe.turn()
+	endPipe.turn()
 
-	pipe = tilemap.create_pipe(Vector2(9, 5))
-	pipe.init(PipeDefs.PIPE_TYPE.VERTICAL)
-	pipe = tilemap.create_pipe(Vector2(9, 6))
-	pipe.init(PipeDefs.PIPE_TYPE.VERTICAL)
-	pipe = tilemap.create_pipe(Vector2(9, 7))
-	pipe.init(PipeDefs.PIPE_TYPE.VERTICAL)
-	pipe = tilemap.create_pipe(Vector2(9, 8))
-	pipe.init(PipeDefs.PIPE_TYPE.VERTICAL)
+	var verticalSize = end.y - start.y
+	var horizontalSize = end.x - start.x
+	var curvesSize = 2
+
+	var pipesTypes = []
+	for _i in range(0, verticalSize):
+		pipesTypes.push_back(PipeDefs.PIPE_TYPE.VERTICAL)
+	for _i in range(0, horizontalSize):
+		pipesTypes.push_back(PipeDefs.PIPE_TYPE.VERTICAL)
+	for _i in range(0, curvesSize):
+		pipesTypes.push_back(PipeDefs.PIPE_TYPE.CURVE)
 	
-	pipe = tilemap.create_pipe(Vector2(9, 9))
-	pipe.init(PipeDefs.PIPE_TYPE.END)
-	pipe.turn()
-	pipe.turn()
+	var totalTiles = mapSize.x * mapSize.y
+	var totalRandomPipes = totalTiles - curvesSize - horizontalSize - verticalSize - 2
+	for _i in range(0, totalRandomPipes):
+		var type = round(rng.randf_range(0, 3))
+		if type == 0:
+			pipesTypes.push_back(PipeDefs.PIPE_TYPE.VERTICAL)
+		elif type == 1:
+			pipesTypes.push_back(PipeDefs.PIPE_TYPE.CURVE)
+		elif type == 2:
+			pipesTypes.push_back(PipeDefs.PIPE_TYPE.T)
+		elif type == 3:
+			pipesTypes.push_back(PipeDefs.PIPE_TYPE.ALL)
+
+	pipesTypes.shuffle()
+
+	var x = 0
+	var y = 0
+	for i in range(0, pipesTypes.size()):
+		if (start.x != x or start.y != y) and (end.x != x or end.y != y):
+			tilemap.create_pipe(Vector2(x, y)).init(pipesTypes[i])
+
+		x += 1
+		if x >= mapSize.x:
+			x = 0
+			y += 1
 
 	waterPath = get_node("WaterPath")
-	waterPath.init(tilemap, Vector2(0, 0))
+	waterPath.init(tilemap, start)
 

@@ -20,8 +20,11 @@ func _process(delta):
 		if pipe_selected != null:
 			var mouse_position = get_viewport().get_mouse_position()
 			var map_pos = tilemap.get_map_position(mouse_position)
-			if tilemap.place_pipe(pipe_selected, map_pos):
-				pipe_selected = null
+
+			var pipe_at = tilemap.place_pipe(pipe_selected, map_pos)
+			pipe_selected = null
+			if pipe_at != null:
+				select_pipe(pipe_at)
 		else:
 			var mouse_position = get_viewport().get_mouse_position()
 			var map_pos = tilemap.get_map_position(mouse_position)

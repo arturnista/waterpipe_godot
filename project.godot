@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "GameController",
+"language": "GDScript",
+"path": "res://Scripts/game_controller.gd"
+}, {
 "base": "Reference",
 "class": "PipeDefs",
 "language": "GDScript",
 "path": "res://Scripts/pipe_type.gd"
 } ]
 _global_script_class_icons={
+"GameController": "",
 "PipeDefs": ""
 }
 

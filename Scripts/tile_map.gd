@@ -8,11 +8,10 @@ const tileMap = {}
 const waterMap = {}
 
 const tile_size = 32
-const map_size = Vector2(10, 10)
 var map_offset
 
 # Called when the node enters the scene tree for the first time.
-func create(offset):
+func create(offset, map_size):
 	map_offset = offset
 	for x in range(0, map_size.x):
 		for y in range(0, map_size.y):
@@ -43,19 +42,24 @@ func create_pipe(pos):
 
 func place_pipe(pipe, position):
 	if !is_inside_map(position):
-		return false
+		return pipe
 
-	if tileMap[position] != null:
-		return false
-
+	var current_pipe_at_position = tileMap[position]
+	
+	if current_pipe_at_position != null and !current_pipe_at_position.is_draggable:
+		return null
+	
 	pipe.set_position(get_world_position(position))
 	tileMap[position] = pipe
-	return true
+	return current_pipe_at_position
 		
 func hold_pipe(position):
 	if !is_inside_map(position):
 		return null
 	if waterMap.has(position):
+		return null
+
+	if !tileMap.has(position):
 		return null
 
 	var pipe = tileMap[position]
