@@ -13,21 +13,15 @@ _global_script_classes=[ {
 "class": "GameController",
 "language": "GDScript",
 "path": "res://Scripts/game_controller.gd"
-}, {
-"base": "Reference",
-"class": "PipeDefs",
-"language": "GDScript",
-"path": "res://Scripts/pipe_type.gd"
 } ]
 _global_script_class_icons={
-"GameController": "",
-"PipeDefs": ""
+"GameController": ""
 }
 
 [application]
 
 config/name="agua_multiplayer_godot"
-run/main_scene="res://Scenes/Game.tscn"
+run/main_scene="res://Scenes/MultiplayerGame.tscn"
 config/icon="res://icon.png"
 
 [input]
