@@ -5,11 +5,13 @@ const getId = (function() {
 
 class Player {
 
-    constructor({ map, server }) {
+    constructor({ map, server, game, leader }) {
         this.map = map
         this.server = server
+        this.game = game
 
         this.id = getId()
+        this.leader = leader
 
         this.tileHold = null
         this.position = { x: 0, y: 0 }
@@ -19,10 +21,19 @@ class Player {
 
             const message = JSON.parse(stringMessage)
             switch (message.event) {
+                case 'player_leader_start_game':
+                    if (!this.leader) return
+                    this.game.startGame()
+                case 'player_leader_fast':
+                    if (!this.leader) return
+                    this.game.fast()
                 case 'player_input':
                     return this.processAction(message.data)
             }
 
+        })
+        this.server.on('close', () => {
+            this.game.onPlayerDisconnect(this)
         })
     }
 
@@ -48,7 +59,8 @@ class Player {
         return {
             id: this.id,
             tileHold: this.tileHold ? this.tileHold.id : -1,
-            position: this.position
+            position: this.position,
+            leader: this.leader,
         }
     }
 

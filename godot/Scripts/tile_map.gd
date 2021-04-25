@@ -14,12 +14,17 @@ func replicate(server_data):
 	if !created:
 		created = true;
 
-		for tile_data in server_data.tiles:
+		for x in range(0, map_size):
+			for y in range(0, map_size):
+				var tile_position = Vector2(x, y)
+				var position = tile_position * tile_size
 
-			# var tile = load(TILE_SCENE)
-			# var tileNode = tile.instance()
-			# add_child(tileNode)
-			# tileNode.set_position(position)
+				var tile = load(TILE_SCENE)
+				var tileNode = tile.instance()
+				add_child(tileNode)
+				tileNode.set_position(position)
+
+		for tile_data in server_data.tiles:
 
 			var pipe = load(PIPE_SCENE)
 			var pipeNode = pipe.instance()
@@ -42,7 +47,7 @@ func replicate(server_data):
 				pipes[tile_data.id].set_position(Vector2(500, 500))
 
 			pipes[tile_data.id].replicate(tile_data)
-				
+
 func get_pipe_by_id(id):
 	return pipes[id]
 

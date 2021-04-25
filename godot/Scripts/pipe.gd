@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+const WATER_SCENE = "res://Elements/Water.tscn"
+
 var player = null
 var exits = []
 var sprite = null
@@ -72,3 +74,9 @@ func replicate(server_data):
 	has_water = int(server_data.water)
 	sprite.rotation_degrees = server_data.angle
 	update()
+
+	if has_water == 1:
+		var tile = load(WATER_SCENE)
+		var tileNode = tile.instance()
+		add_child(tileNode)
+		tileNode.set_position(Vector2.ZERO)

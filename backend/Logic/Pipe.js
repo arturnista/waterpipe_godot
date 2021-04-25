@@ -19,9 +19,14 @@ class Pipe {
 
     _setExits() {
         
-        if (this.style == Pipe.PIPE_STYLE_START || this.style == Pipe.PIPE_STYLE_END) {
+        if (this.style == Pipe.PIPE_STYLE_START) {
             this.exits = [
                 { x: 0, y: 1 }
+            ]
+            return
+        } else if (this.style == this.style == Pipe.PIPE_STYLE_END) {
+            this.exits = [
+                { x: 0, y: -1 }
             ]
             return
         }
@@ -69,7 +74,7 @@ class Pipe {
             else if (exit.y == 1) x = -1
             else if (exit.y == -1) x = 1
             
-            if (exit.y == 1 || exit.y == -1) x = 0
+            if (exit.y == 1 || exit.y == -1) y = 0
             else if (exit.x == -1) y = -1
             else if (exit.x == 1) y = 1
 

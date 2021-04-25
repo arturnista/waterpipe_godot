@@ -100,6 +100,7 @@ class Map {
         
         let positionTile = this.getTileAtPosition(x, y)
         if (positionTile == null) return null
+        if (!positionTile.canGrab()) return null
 
         this.tiles[positionTile.id].position = 'hold'
         return this.tiles[positionTile.id]

@@ -1,10 +1,14 @@
 extends Node
 
+const WIN_SCENE = "res://Scenes/Win.tscn"
+const LOSE_SCENE = "res://Scenes/Lose.tscn"
+
 # The URL we will connect to
-export var websocket_url = "ws://localhost:8080"
+export var websocket_url = "ws://localhost:3000"
 
 var tilemap = null
 var player = null
+var game_state = ''
 # Our WebSocketClient instance
 var _client = WebSocketClient.new()
 
@@ -47,8 +51,20 @@ func _on_data():
 		if message.event == 'player_register':
 			player.register(message.data)
 		elif message.event == 'gameState':
-			tilemap.replicate(message.data.map)
-			player.replicate(message.data.players[0])
+			var player_received
+			for player_it in message.data.players:
+				if(player_it["id"] == player.id):
+					player_received = player_it
+					break
+
+			game_state = message.data.state
+			if game_state == "GAME":
+				tilemap.replicate(message.data.map)
+				player.replicate(player_received)
+			if game_state == "WIN":
+				get_tree().change_scene(WIN_SCENE)
+			if game_state == "LOSE":
+				get_tree().change_scene(LOSE_SCENE)
 
 func _process(delta):
 	# emission will only happen when calling this function.

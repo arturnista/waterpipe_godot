@@ -2,9 +2,8 @@ const WebSocket = require('ws');
 
 class Server {
 
-    constructor() {
+    constructor({ port }) {
         
-        const port = process.env.PORT || 8080
         this.webSocketServer = new WebSocket.Server({ port }, () => {
             console.log(`Game Server RUNNING!\nPort: ${port}`);
         })
