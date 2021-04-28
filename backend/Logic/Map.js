@@ -41,9 +41,10 @@ class Map {
         // Map size - pre tiles - start and end
         const mapSize = Math.pow(this.size, 2) - preTiles.length - 2
         for (let index = 0; index < mapSize; index++) {
+            const rand = Math.round(Math.random() * 10)
             let pipeType = Pipe.PIPE_VERTICAL
-            if (index % 9 == 0) pipeType = Pipe.PIPE_T
-            if (index % 9 == 1) pipeType = Pipe.PIPE_ALL
+            if (rand == 0) pipeType = Pipe.PIPE_T
+            if (rand == 1) pipeType = Pipe.PIPE_ALL
             preTiles.push(new Pipe(pipeType))            
         }
 
@@ -65,6 +66,12 @@ class Map {
 
     createTile(x, y, tile) {
         if (!this._verifyPosition(x, y)) return null
+        if (tile.style == Pipe.PIPE_STYLE_NORMAL) {
+            const rand = Math.round(Math.random() * 2)
+            for (let index = 0; index < rand; index++) {
+                tile.rotate()
+            }
+        }
         tile.position = { x, y }
         this.tiles[tile.id] = tile
     }

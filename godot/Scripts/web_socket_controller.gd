@@ -2,13 +2,18 @@ extends Node
 
 const WIN_SCENE = "res://Scenes/Win.tscn"
 const LOSE_SCENE = "res://Scenes/Lose.tscn"
+const LEADER_SCENE = "res://Elements/Leader.tscn"
+const USER_SCENE = "res://Elements/User.tscn"
+
 
 # The URL we will connect to
 export var websocket_url = "ws://localhost:3000"
+# export var websocket_url = "ws://plumbing-crash.herokuapp.com"
 
 var tilemap = null
 var player = null
 var game_state = ''
+var user_scene_loaded = null
 # Our WebSocketClient instance
 var _client = WebSocketClient.new()
 
@@ -49,8 +54,16 @@ func _on_data():
 	if result_json.error == OK:  # If parse OK
 		var message = result_json.result
 		if message.event == 'player_register':
+			var scene = null
+			if message.data.leader:
+				scene = load(LEADER_SCENE)
+			else:
+				scene = load(USER_SCENE)
+			user_scene_loaded = scene.instance()
+			add_child(user_scene_loaded)
 			player.register(message.data)
 		elif message.event == 'gameState':
+
 			var player_received
 			for player_it in message.data.players:
 				if(player_it["id"] == player.id):
@@ -59,6 +72,11 @@ func _on_data():
 
 			game_state = message.data.state
 			if game_state == "GAME":
+
+				if user_scene_loaded != null:
+					remove_child(user_scene_loaded)
+					user_scene_loaded = null
+
 				tilemap.replicate(message.data.map)
 				player.replicate(player_received)
 			if game_state == "WIN":
