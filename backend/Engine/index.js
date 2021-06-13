@@ -1,5 +1,6 @@
 const Server = require("./Server")
 const Game = require("../Logic/Game")
+const generateRoomName = require('../Utils/generateRoomName')
 
 const getId = (function() {
     let id = 0
@@ -11,15 +12,20 @@ const TICK_LENGTH_MS = 1000 / FPS
 
 class Engine {
 
-    constructor({ FPS, port }) {
+    constructor({ FPS, name }) {
         this.id = getId()
+        this.name = generateRoomName(this.id)
         
         this.TICK_LENGTH_MS = 1000 / FPS
-        this.server = new Server({ port })
+        this.server = new Server({ name })
         this.createGame()
 
         this.handlePlayerConnect = this.handlePlayerConnect.bind(this)
         this.server.addListener('player_connect', this.handlePlayerConnect)
+    }
+
+    getServer() {
+        return this.server
     }
 
     handlePlayerConnect(event, message) {
@@ -27,7 +33,7 @@ class Engine {
     }
 
     createGame() {
-        console.log("ENGINE | Game created")
+        this.log("ENGINE | Game created")
         
         this.game = new Game({
             engine: this,
@@ -67,6 +73,10 @@ class Engine {
             setImmediate(this.gameLoop.bind(this))
         }
         
+    }
+
+    log(msg) {
+        console.log(`ENGINE ${this.name} | ${msg}`)
     }
 
 }

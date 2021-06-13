@@ -1,16 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/tile_map.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/web_socket_controller.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/web_socket_controller.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/tile_map.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/player_controller.gd" type="Script" id=3]
+[ext_resource path="res://Elements/GameUI.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node"]
 
 [node name="Connection" type="Node" parent="."]
-script = ExtResource( 2 )
+editor/display_folded = true
+script = ExtResource( 1 )
 
 [node name="Tilemap" type="Node" parent="Connection"]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Player" type="Node" parent="Connection"]
 script = ExtResource( 3 )
+
+[node name="GameUI" parent="." instance=ExtResource( 4 )]

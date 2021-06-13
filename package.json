@@ -5,6 +5,7 @@
   "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js",
+    "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -12,5 +13,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "ws": "^7.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }

@@ -7,7 +7,7 @@ const USER_SCENE = "res://Elements/User.tscn"
 
 
 # The URL we will connect to
-export var websocket_url = "ws://localhost:3000"
+# export var websocket_url = "ws://localhost:3000/"
 # export var websocket_url = "ws://plumbing-crash.herokuapp.com"
 
 var tilemap = null
@@ -30,7 +30,7 @@ func _ready():
 	_client.connect("data_received", self, "_on_data")
 
 	# Initiate connection to the given URL.
-	var err = _client.connect_to_url(websocket_url)
+	var err = _client.connect_to_url(connection.get_room_url())
 	if err != OK:
 		print("Unable to connect")
 		set_process(false)

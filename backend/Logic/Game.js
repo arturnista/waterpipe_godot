@@ -32,7 +32,7 @@ class Game {
 
     changeGameState(state) {
         this.gameState = state
-        console.log(`GAME | Game state changed to ${this.gameState}`)
+        this.engine.log(`GAME | Game state changed to ${this.gameState}`)
     }
 
     frame(deltatime) {
@@ -63,7 +63,7 @@ class Game {
         })
         this.players.push(player)
 
-        console.log(`GAME | Player connected ${player.leader ? "LEADER!" : ''}`)
+        this.engine.log(`GAME | Player connected ${player.leader ? "LEADER!" : ''}`)
     }
 
     onPlayerDisconnect(player) {

@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="agua_multiplayer_godot"
-run/main_scene="res://Scenes/MultiplayerGame.tscn"
+run/main_scene="res://Scenes/StartMenu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+connection="*res://Scripts/connection.gd"
 
 [input]
 

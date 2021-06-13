@@ -2,10 +2,10 @@ const WebSocket = require('ws');
 
 class Server {
 
-    constructor({ port }) {
+    constructor({ name }) {
         
-        this.webSocketServer = new WebSocket.Server({ port }, () => {
-            console.log(`Game Server RUNNING!\nPort: ${port}`);
+        this.webSocketServer = new WebSocket.Server({ noServer: true }, () => {
+            console.log(`ENGINE | Server ${name} RUNNING!`);
         })
         this.clients = []
 
@@ -23,6 +23,10 @@ class Server {
             
         })
 
+    }
+
+    getSocket() {
+        return this.webSocketServer
     }
 
     _dispatchEvent(event, data) {
