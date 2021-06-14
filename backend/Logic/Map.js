@@ -1,11 +1,12 @@
 const Pipe = require('./Pipe')
+const _ = require('lodash')
 
 class Map {
 
     constructor({ size, game }) {
         this.game = game
         this.size = size
-        this.outsideSize = 5
+        this.outsideSize = Math.round(this.size / 2)
         this.tiles = {}
         this.startPosition = {}
         this.endPosition = {}
@@ -53,18 +54,20 @@ class Map {
             const rand = Math.round(Math.random() * 10)
             let pipeType = Pipe.PIPE_VERTICAL
             if (rand == 0) pipeType = Pipe.PIPE_T
-            if (rand == 1) pipeType = Pipe.PIPE_ALL
+            else if (rand == 1) pipeType = Pipe.PIPE_ALL
 
-            const styleRand = Math.round(Math.random() * 10)
+            const styleRand = Math.round(Math.random() * 100)
             let pipeStyle = Pipe.PIPE_STYLE_NORMAL
-            if (styleRand == 0) pipeStyle = Pipe.PIPE_STYLE_STATIC
+            if (styleRand <= 10) pipeStyle = Pipe.PIPE_STYLE_STATIC
 
             preTiles.push(new Pipe({ type: pipeType, style: pipeStyle }))            
         }
 
-        for (let index = 0; index < Math.round(Math.random() * 10) + 1; index++) {
+        for (let index = 0; index < Math.round(this.size / 3); index++) {
             preTiles[index].special = Pipe.PIPE_SPECIAL_FREEZE
         }
+
+        let preTilesShuffle = _.shuffle(preTiles)
 
         for (let x = 0; x < this.size; x++) {
             for (let y = 0; y < this.size; y++) {
@@ -74,14 +77,19 @@ class Map {
                 } else if (x == this.endPosition.x && y == this.endPosition.y) {
                     tile = new Pipe({ type: Pipe.PIPE_VERTICAL, style: Pipe.PIPE_STYLE_END })
                 } else {
-                    tile = preTiles.pop()
+                    tile = preTilesShuffle.pop()
                 }
                 this.createTile(x, y, tile)
             }
         }
 
         for (let y = 0; y < this.outsideSize; y++) {
-            this.createTile(this.size + 2, y, new Pipe({ type: Pipe.PIPE_VERTICAL, style: Pipe.PIPE_STYLE_OUTSIDE }))
+            const rand = Math.round(Math.random() * 3)
+            let pipeType = Pipe.PIPE_VERTICAL
+            if (rand == 0) pipeType = Pipe.PIPE_CURVE
+            else if (rand == 1) pipeType = Pipe.PIPE_T
+            else if (rand == 2) pipeType = Pipe.PIPE_ALL
+            this.createTile(this.size + 2, y, new Pipe({ type: pipeType, style: Pipe.PIPE_STYLE_OUTSIDE }))
         }
 
     }
@@ -114,17 +122,21 @@ class Map {
     }
 
     placeTile(x, y, tile) {
-        if (!this._verifyPosition(x, y)) return null
+        if (!this._verifyPosition(x, y)) return tile
 
         let positionTile = this.getTileAtPosition(x, y)
-
-        this.tiles[tile.id].position = { x, y }
-
-        if (positionTile) {
-            this.tiles[positionTile.id].position = 'hold'
+        if (positionTile == null) {
+            this.tiles[tile.id].position = { x, y }
+            return null
         }
 
-        return positionTile ? positionTile : null
+        if (positionTile.canGrab()) {
+            this.tiles[tile.id].position = { x, y }
+            this.tiles[positionTile.id].position = 'hold'
+            return positionTile
+        }
+
+        return tile
     }
 
     grabTile(x, y) {

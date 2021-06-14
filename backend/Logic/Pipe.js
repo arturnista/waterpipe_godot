@@ -5,13 +5,15 @@ const getId = (function() {
 
 class Pipe {
 
-    constructor({ type, style = Pipe.PIPE_STYLE_NORMAL, game }) {
+    constructor({ type, style = Pipe.PIPE_STYLE_NORMAL, special = Pipe.PIPE_SPECIAL_NORMAL, game }) {
         this.id = getId()
         this.type = type
         this.style = style
+        this.special = special
+
         this.angle = 0
         this.water = false
-        this.special = Pipe.PIPE_SPECIAL_NORMAL
+        
         this.position = {x : 0, y: 0}
 
         this.game = game
@@ -65,10 +67,6 @@ class Pipe {
 
     }
 
-    setSpecial(special) {
-        this.special = special
-    }
-
     rotate() {
 
         this.angle += 90
@@ -101,7 +99,6 @@ class Pipe {
 
     fullWater() {
         this.water = true
-        console.log(this.special);
         if (this.special == Pipe.PIPE_SPECIAL_FREEZE) {
             this.game.freeze()
         }
