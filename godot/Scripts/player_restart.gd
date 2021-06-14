@@ -1,7 +1,7 @@
 extends Node
 
 
-const GAME_SCENE = "res://Scenes/MultiplayerGame.tscn"
+const GAME_SCENE = "res://Scenes/Game.tscn"
 
 func _process(delta):
 		

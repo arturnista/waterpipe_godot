@@ -43,6 +43,18 @@ margin_right = 125.0
 [node name="RoomName" type="Label" parent="RoomData"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -40.0
 text = "Room code: 1"
 align = 1
 valign = 2
+
+[node name="DisconnectButton" type="Button" parent="RoomData"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -50.0
+margin_top = -35.0
+margin_right = 50.0
+text = "Disconnect"
+[connection signal="pressed" from="RoomData/DisconnectButton" to="." method="_on_DisconnectButton_pressed"]

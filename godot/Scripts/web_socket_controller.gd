@@ -1,9 +1,11 @@
 extends Node
 
+const LOBBY_SCENE = "res://Scenes/Lobby.tscn"
+
 const WIN_SCENE = "res://Scenes/Win.tscn"
 const LOSE_SCENE = "res://Scenes/Lose.tscn"
-const LEADER_SCENE = "res://Elements/Leader.tscn"
-const USER_SCENE = "res://Elements/User.tscn"
+const LEADER_SCENE = "res://Elements/UI_Leader.tscn"
+const USER_SCENE = "res://Elements/UI_User.tscn"
 
 
 # The URL we will connect to
@@ -40,11 +42,15 @@ func _closed(was_clean = false):
 	# by the remote peer before closing the socket.
 	print("Closed, clean: ", was_clean)
 	set_process(false)
+	get_tree().change_scene(LOBBY_SCENE)
 
 func _connected(proto = ""):
 	# This is called on connection, "proto" will be the selected WebSocket
 	# sub-protocol (which is optional)
 	print("Connected with protocol: ", proto)
+
+func close_connection():
+	_client.disconnect_from_host()
 
 # Process receive data
 func _on_data():
