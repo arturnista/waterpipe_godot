@@ -2,7 +2,7 @@ const Map = require('./Map')
 const WaterPath = require('./WaterPath')
 const Player = require('./Player')
 
-const WATER_STEP_START_TIME = 10
+const WATER_STEP_START_TIME = 5
 const WATER_STEP_TIME = 5
 
 class Game {
@@ -10,10 +10,11 @@ class Game {
     constructor({ engine, server }) {
         this.engine = engine
         this.server = server
-        this.map = new Map(10)
+        this.map = new Map({ size: 10, game: this })
 
         this.waterPath = new WaterPath({ map: this.map, game: this })
         this.waterTime = 0
+        this.freezeTime = 0
         this.waterStarted = false
         this.players = []
 
@@ -37,6 +38,11 @@ class Game {
 
     frame(deltatime) {
         if (this.gameState != 'GAME') return
+
+        if (this.freezeTime > 0) {
+            this.freezeTime -= deltatime
+            return
+        }
 
         this.waterTime += deltatime
         if (!this.waterStarted) {
@@ -77,6 +83,11 @@ class Game {
     
     fast() {
         this.WATER_STEP_TIME /= 2
+    }
+
+    freeze() {
+        this.engine.log(`GAME | Game freeze!`)
+        this.freezeTime = 5
     }
 
     state() {

@@ -2,16 +2,25 @@ const Pipe = require('./Pipe')
 
 class Map {
 
-    constructor(size) {
+    constructor({ size, game }) {
+        this.game = game
         this.size = size
+        this.outsideSize = 5
         this.tiles = {}
         this.startPosition = {}
         this.endPosition = {}
     }
 
     _verifyPosition(x, y) {
-        if (x < 0 || y < 0) return false
-        if (x >= this.size || y >= this.size) return false
+        if (x < 0 || y < 0) return this._verifyOutsidePosition(x, y)
+        if (x >= this.size || y >= this.size) return this._verifyOutsidePosition(x, y)
+        return true
+    }
+
+    _verifyOutsidePosition(x, y) {
+        if (x < this.size) return false
+        if (x != this.size + 2) return false
+        if (y >= this.outsideSize) return false
         return true
     }
 
@@ -32,10 +41,10 @@ class Map {
 
         const preTiles = []
         for (let index = 0; index < xDiff; index++) {
-            preTiles.push(new Pipe(Pipe.PIPE_CURVE))
+            preTiles.push(new Pipe({ type: Pipe.PIPE_CURVE }))
         }
         for (let index = 0; index < yDiff; index++) {
-            preTiles.push(new Pipe(Pipe.PIPE_VERTICAL))
+            preTiles.push(new Pipe({ type: Pipe.PIPE_VERTICAL }))
         }
 
         // Map size - pre tiles - start and end
@@ -45,21 +54,34 @@ class Map {
             let pipeType = Pipe.PIPE_VERTICAL
             if (rand == 0) pipeType = Pipe.PIPE_T
             if (rand == 1) pipeType = Pipe.PIPE_ALL
-            preTiles.push(new Pipe(pipeType))            
+
+            const styleRand = Math.round(Math.random() * 10)
+            let pipeStyle = Pipe.PIPE_STYLE_NORMAL
+            if (styleRand == 0) pipeStyle = Pipe.PIPE_STYLE_STATIC
+
+            preTiles.push(new Pipe({ type: pipeType, style: pipeStyle }))            
+        }
+
+        for (let index = 0; index < Math.round(Math.random() * 10) + 1; index++) {
+            preTiles[index].special = Pipe.PIPE_SPECIAL_FREEZE
         }
 
         for (let x = 0; x < this.size; x++) {
             for (let y = 0; y < this.size; y++) {
                 let tile = null
                 if (x == this.startPosition.x && y == this.startPosition.y) {
-                    tile = new Pipe(Pipe.PIPE_VERTICAL, Pipe.PIPE_STYLE_START)
+                    tile = new Pipe({ type: Pipe.PIPE_VERTICAL, style: Pipe.PIPE_STYLE_START })
                 } else if (x == this.endPosition.x && y == this.endPosition.y) {
-                    tile = new Pipe(Pipe.PIPE_VERTICAL, Pipe.PIPE_STYLE_END)
+                    tile = new Pipe({ type: Pipe.PIPE_VERTICAL, style: Pipe.PIPE_STYLE_END })
                 } else {
                     tile = preTiles.pop()
                 }
                 this.createTile(x, y, tile)
             }
+        }
+
+        for (let y = 0; y < this.outsideSize; y++) {
+            this.createTile(this.size + 2, y, new Pipe({ type: Pipe.PIPE_VERTICAL, style: Pipe.PIPE_STYLE_OUTSIDE }))
         }
 
     }
@@ -72,12 +94,15 @@ class Map {
                 tile.rotate()
             }
         }
+
+        tile.game = this.game
         tile.position = { x, y }
         this.tiles[tile.id] = tile
     }
 
     getTileAtPosition(x, y) {
         if (!this._verifyPosition(x, y)) return null
+        
         for (const key in this.tiles) {
             const element = this.tiles[key]
             if (element.position != 'hold' && element.position.x == x && element.position.y == y) {
@@ -116,6 +141,7 @@ class Map {
     state() {
         return {
             size: this.size,
+            outsideSize: this.outsideSize,
             tiles: Object.keys(this.tiles).map(key => this.tiles[key].state())
         }
     }

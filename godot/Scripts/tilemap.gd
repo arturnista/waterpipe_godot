@@ -8,9 +8,11 @@ const tile_size = 32
 var created = false
 var pipes = {}
 var map_size
+var outside_size
 
 func replicate(server_data):
 	map_size = server_data.size
+	outside_size = server_data.outsideSize
 	if !created:
 		created = true;
 
@@ -23,6 +25,15 @@ func replicate(server_data):
 				var tileNode = tile.instance()
 				add_child(tileNode)
 				tileNode.set_position(position)
+				
+		for y in range(0, outside_size):
+			var tile_position = Vector2(map_size + 2, y)
+			var position = tile_position * tile_size
+
+			var tile = load(TILE_SCENE)
+			var tileNode = tile.instance()
+			add_child(tileNode)
+			tileNode.set_position(position)
 
 		for tile_data in server_data.tiles:
 

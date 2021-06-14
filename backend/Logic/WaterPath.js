@@ -12,7 +12,7 @@ class WaterPath {
         console.log("Water start")
         const sp = this.map.startPosition
         const tile = this.map.getTileAtPosition(sp.x, sp.y)
-        tile.water = true
+        tile.fullWater()
 
         this.tiles = [tile]
     }
@@ -39,7 +39,7 @@ class WaterPath {
 
                     if (this.tiles.indexOf(nextTile) == -1) {
                         if (nextTile.style == Pipe.PIPE_STYLE_END) this.game.win()
-                        nextTile.water = true
+                        nextTile.fullWater()
                         this.tiles.push(nextTile)
                     }
                 }

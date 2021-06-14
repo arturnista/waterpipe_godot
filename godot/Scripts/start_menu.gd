@@ -8,8 +8,8 @@ func _ready():
 	$HTTPRequest.connect("request_completed", self, "_on_request_completed")
 
 func _on_CreateRoomBtn_pressed():
-	$HTTPRequest.request(connection.get_server_url("createRoom"), [], false, HTTPClient.METHOD_POST)
 	print("_on_CreateRoomBtn_pressed")
+	$HTTPRequest.request(connection.get_server_url("createRoom"), [], false, HTTPClient.METHOD_POST)
 
 func _on_ConnectRoomBtn_pressed():
 	print("_on_ConnectRoomBtn_pressed " + text_input.text)

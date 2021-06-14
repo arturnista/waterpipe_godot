@@ -22,7 +22,6 @@ var current_url = {}
 
 func _ready():
 	current_url = local
-	print("Aqui?")
 
 func set_is_remote(data):
 	print(data);

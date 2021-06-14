@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Sprites/canos.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/pipe.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/pipe.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/canos.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/special.png" type="Texture" id=3]
 
 [node name="Pipe" type="StaticBody2D" groups=[
 "player",
 ]]
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -16,7 +17,7 @@ position = Vector2( 16, 16 )
 
 [node name="Start" type="Sprite" parent="Node2D"]
 modulate = Color( 0.12549, 1, 0, 1 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 32, 32 )
 __meta__ = {
@@ -24,7 +25,7 @@ __meta__ = {
 }
 
 [node name="Vertical" type="Sprite" parent="Node2D"]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 32, 0, 32, 32 )
 __meta__ = {
@@ -33,7 +34,7 @@ __meta__ = {
 
 [node name="Curve" type="Sprite" parent="Node2D"]
 visible = false
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 64, 0, 32, 32 )
 __meta__ = {
@@ -42,7 +43,7 @@ __meta__ = {
 
 [node name="T" type="Sprite" parent="Node2D"]
 visible = false
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 96, 0, 32, 32 )
 __meta__ = {
@@ -51,9 +52,20 @@ __meta__ = {
 
 [node name="All" type="Sprite" parent="Node2D"]
 visible = false
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 128, 0, 32, 32 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Special" type="Node2D" parent="."]
+position = Vector2( 16, 16 )
+
+[node name="Freeze" type="Sprite" parent="Special"]
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
 __meta__ = {
 "_edit_group_": true
 }
