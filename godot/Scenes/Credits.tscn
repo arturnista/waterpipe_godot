@@ -53,6 +53,5 @@ text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="pressed" from="Canvas/BackButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="Canvas/BackButton" to="." method="_on_BackButton_pressed"]

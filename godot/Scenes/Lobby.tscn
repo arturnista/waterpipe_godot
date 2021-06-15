@@ -183,7 +183,6 @@ __meta__ = {
 }
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
-
 [connection signal="pressed" from="Canvas/CreateControl/CreateRoomBtn" to="." method="_on_CreateRoomBtn_pressed"]
 [connection signal="toggled" from="Canvas/CreateControl/CheckBox" to="." method="_on_CheckBox_toggled"]
 [connection signal="pressed" from="Canvas/ConnectControl/ConnectRoomBtn" to="." method="_on_ConnectRoomBtn_pressed"]

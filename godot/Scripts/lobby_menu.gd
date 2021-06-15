@@ -24,6 +24,8 @@ func _on_request_completed(result, response_code, headers, body):
 	var json = JSON.parse(body.get_string_from_utf8())
 	connection.room_name = json.result.name
 	get_tree().change_scene(GAME_SCENE)
+	get_node("/root/UI_SFX/UIConfirmation").play(0)
 
 func _on_BackButton_pressed():
+	get_node("/root/UI_SFX/UIClick").play(0)
 	get_tree().change_scene(START_SCENE)
