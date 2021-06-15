@@ -41,7 +41,11 @@ class Player {
         this.position = actions.position
         if (this.tileHold) {
             if (actions.select_pipe) {
+                let lastTile = this.tileHold
                 this.tileHold = this.map.placeTile(actions.position.x, actions.position.y, this.tileHold)
+                if (this.tileHold && this.tileHold.id == lastTile.id) {
+                    this.server.sendEvent('player_place_error', this.state())
+                }
             }
             
             if (actions.rotate_pipe) {

@@ -101,6 +101,8 @@ func _on_data():
 			$SFX/GameWaterStep.play(0)
 		elif message.event == 'game-water-step':
 			$SFX/GameWaterStep.play(0)
+		elif message.event == 'player_place_error':
+			$SFX/PlayerPlaceError.play(0)
 
 func _process(delta):
 	# emission will only happen when calling this function.

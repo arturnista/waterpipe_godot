@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/web_socket_controller.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/tilemap.gd" type="Script" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://Sounds/GameFreeze.wav" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/GameMusic.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Sounds/GameWaterStep.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Elements/UI_Game.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sounds/PlayerPlaceError.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Elements/UI_Game.tscn" type="PackedScene" id=8]
 
 [node name="World" type="Node"]
 
@@ -26,8 +27,12 @@ stream = ExtResource( 4 )
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="Connection/SFX"]
 stream = ExtResource( 5 )
+volume_db = -12.0
 
 [node name="GameWaterStep" type="AudioStreamPlayer" parent="Connection/SFX"]
 stream = ExtResource( 6 )
 
-[node name="UI" parent="." instance=ExtResource( 7 )]
+[node name="PlayerPlaceError" type="AudioStreamPlayer" parent="Connection/SFX"]
+stream = ExtResource( 7 )
+
+[node name="UI" parent="." instance=ExtResource( 8 )]

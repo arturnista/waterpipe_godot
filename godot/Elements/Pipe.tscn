@@ -10,6 +10,8 @@
 [node name="Pipe" type="StaticBody2D" groups=[
 "player",
 ]]
+z_index = 1
+z_as_relative = false
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

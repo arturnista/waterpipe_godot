@@ -3,6 +3,8 @@
 [ext_resource path="res://Sprites/border.png" type="Texture" id=1]
 
 [node name="Tile" type="StaticBody2D"]
+z_index = -1
+z_as_relative = false
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 16, 16 )
