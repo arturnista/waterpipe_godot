@@ -1,48 +1,109 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/lobby_menu.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Lobby.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/BackGround opcoes.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/BackGround.jpg" type="Texture" id=4]
+[ext_resource path="res://Sprites/Backgrounds/BackGround.jpg" type="Texture" id=5]
 
 [node name="Menu" type="Node"]
 script = ExtResource( 1 )
 
 [node name="Canvas" type="Control" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -400.0
-margin_top = -150.0
-margin_right = 400.0
-margin_bottom = 100.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background" type="TextureRect" parent="Canvas"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="titulo2" type="TextureRect" parent="Canvas"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -512.0
+margin_right = 512.0
+margin_bottom = 600.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackGround opcoes2" type="TextureRect" parent="Canvas"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -512.289
+margin_top = -729.6
+margin_right = 511.711
+margin_bottom = -129.6
+rect_scale = Vector2( 1, 1.434 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackGround opcoes" type="Sprite" parent="Canvas"]
+visible = false
+position = Vector2( 512, 300 )
+scale = Vector2( 1, 1.43389 )
+z_as_relative = false
+texture = ExtResource( 3 )
+
+[node name="BackGround" type="Sprite" parent="Canvas"]
+visible = false
+position = Vector2( 512, 300 )
+z_index = -5
+texture = ExtResource( 4 )
+
+[node name="Lobby" type="Sprite" parent="Canvas"]
+visible = false
+position = Vector2( 512, 300 )
+texture = ExtResource( 2 )
+
 [node name="Title" type="Label" parent="Canvas"]
 anchor_right = 1.0
-margin_right = 6.10352e-005
+margin_right = 6.10352e-05
 margin_bottom = 50.0
-text = "Plubing Crash"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CreateControl" type="Control" parent="Canvas"]
-anchor_top = 0.3
+anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -3.2392
-margin_top = 5.39865
-margin_right = -3.2392
-margin_bottom = 5.39865
+margin_left = -512.0
+margin_top = -420.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Desc" type="Label" parent="Canvas/CreateControl"]
-anchor_right = 1.0
-margin_right = 6.10352e-005
+anchor_left = 0.341
+anchor_top = 0.238
+anchor_right = 0.743
+anchor_bottom = 0.288
+margin_left = 0.180084
+margin_top = -0.159973
+margin_right = -68.644
+margin_bottom = -7.15998
+rect_scale = Vector2( 1.5, 1.5 )
 text = "Create a new room"
 align = 1
 __meta__ = {
@@ -50,29 +111,55 @@ __meta__ = {
 }
 
 [node name="CreateRoomBtn" type="Button" parent="Canvas/CreateControl"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -50.0
-margin_top = 100.0
-margin_right = 50.0
-margin_bottom = 35.0
+anchor_left = 0.391
+anchor_top = 0.368
+anchor_right = 0.684
+anchor_bottom = 0.44
+margin_left = 0.151154
+margin_top = 0.0400085
+margin_right = -49.8649
+margin_bottom = -10.2
+rect_scale = Vector2( 1.5, 1.5 )
 text = "Create"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="Canvas/CreateControl"]
+anchor_left = 0.5
+anchor_top = 0.522
+anchor_right = 0.875
+anchor_bottom = 0.608
+margin_top = 0.160004
+margin_right = -64.0
+margin_bottom = -11.96
+rect_scale = Vector2( 1.5, 1.5 )
+text = "Remote server?"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ConnectControl" type="Control" parent="Canvas"]
 anchor_left = 0.5
-anchor_top = 0.3
-anchor_right = 1.0
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+margin_top = -420.0
+margin_right = 512.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Desc2" type="Label" parent="Canvas/ConnectControl"]
-anchor_right = 1.0
-margin_bottom = 14.0
+anchor_left = 0.387
+anchor_top = 0.238
+anchor_right = 0.698
+anchor_bottom = 0.288
+margin_left = 0.199097
+margin_top = -0.159996
+margin_right = -55.0329
+margin_bottom = -7.16
+rect_scale = Vector2( 1.5, 1.5 )
 text = "Enter a room"
 align = 1
 __meta__ = {
@@ -80,49 +167,50 @@ __meta__ = {
 }
 
 [node name="RoomNameInput" type="LineEdit" parent="Canvas/ConnectControl"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -40.0
-margin_top = 60.0
-margin_right = 40.0
-margin_bottom = 84.0
+anchor_left = 0.422
+anchor_top = 0.368
+anchor_right = 0.658
+anchor_bottom = 0.454
+margin_left = -0.0640411
+margin_top = 0.0399933
+margin_right = -40.8961
+margin_bottom = -12.08
+rect_scale = Vector2( 1.5, 1.5 )
 placeholder_text = "Code"
 
 [node name="ConnectRoomBtn" type="Button" parent="Canvas/ConnectControl"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -50.0
-margin_top = 100.0
-margin_right = 50.0
-margin_bottom = 35.0
+anchor_left = 0.393
+anchor_top = 0.522
+anchor_right = 0.682
+anchor_bottom = 0.594
+margin_left = -2.2872
+margin_top = 0.159988
+margin_right = -50.2552
+margin_bottom = -10.08
+rect_scale = Vector2( 1.5, 1.5 )
 text = "Connect"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CheckBox" type="CheckBox" parent="Canvas"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -165.5
-margin_top = -24.0
-margin_right = 165.5
-text = "Remote server?"
-
 [node name="BackButton" type="Button" parent="Canvas"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -75.0
-margin_top = 35.0
-margin_right = 75.0
-margin_bottom = 70.0
+anchor_left = 0.426
+anchor_top = 0.768
+anchor_right = 0.574
+anchor_bottom = 0.832
+margin_left = -0.0509949
+margin_top = 1.19998
+margin_right = -50.603
+margin_bottom = -12.2
+rect_scale = Vector2( 1.5, 1.5 )
 text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="pressed" from="Canvas/CreateControl/CreateRoomBtn" to="." method="_on_CreateRoomBtn_pressed"]
+[connection signal="toggled" from="Canvas/CreateControl/CheckBox" to="." method="_on_CheckBox_toggled"]
 [connection signal="pressed" from="Canvas/ConnectControl/ConnectRoomBtn" to="." method="_on_ConnectRoomBtn_pressed"]
-[connection signal="toggled" from="Canvas/CheckBox" to="." method="_on_CheckBox_toggled"]
 [connection signal="pressed" from="Canvas/BackButton" to="." method="_on_BackButton_pressed"]
