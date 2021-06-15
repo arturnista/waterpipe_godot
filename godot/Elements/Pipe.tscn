@@ -14,7 +14,9 @@ z_index = 1
 z_as_relative = false
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_horizontal_guides_": [ 59.9842 ],
+"_edit_vertical_guides_": [ 60.0068 ]
 }
 
 [node name="Sprites" type="Node2D" parent="."]
@@ -22,6 +24,8 @@ position = Vector2( 16, 16 )
 
 [node name="Start" type="Sprite" parent="Sprites"]
 modulate = Color( 0.12549, 1, 0, 1 )
+position = Vector2( 14.001, 13.994 )
+scale = Vector2( 1.87506, 1.87463 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 32, 32 )
@@ -30,6 +34,8 @@ __meta__ = {
 }
 
 [node name="Vertical" type="Sprite" parent="Sprites"]
+position = Vector2( 14.001, 13.994 )
+scale = Vector2( 1.875, 1.875 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 32, 0, 32, 32 )
@@ -38,7 +44,8 @@ __meta__ = {
 }
 
 [node name="Curve" type="Sprite" parent="Sprites"]
-visible = false
+position = Vector2( 14.001, 13.994 )
+scale = Vector2( 1.875, 1.875 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 64, 0, 32, 32 )
@@ -47,7 +54,8 @@ __meta__ = {
 }
 
 [node name="T" type="Sprite" parent="Sprites"]
-visible = false
+position = Vector2( 14.001, 13.994 )
+scale = Vector2( 1.875, 1.875 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 96, 0, 32, 32 )
@@ -56,7 +64,8 @@ __meta__ = {
 }
 
 [node name="All" type="Sprite" parent="Sprites"]
-visible = false
+position = Vector2( 14.001, 13.994 )
+scale = Vector2( 1.875, 1.875 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 128, 0, 32, 32 )
@@ -68,6 +77,9 @@ __meta__ = {
 position = Vector2( 16, 16 )
 
 [node name="Freeze" type="Sprite" parent="Special"]
+visible = false
+position = Vector2( 14.001, 13.994 )
+scale = Vector2( 1.875, 1.875 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 32, 32 )

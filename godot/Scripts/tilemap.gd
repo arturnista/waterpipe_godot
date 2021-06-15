@@ -4,7 +4,7 @@ const WATER_SCENE = "res://Elements/Water.tscn"
 const TILE_SCENE = "res://Elements/Tile.tscn"
 const PIPE_SCENE = "res://Elements/Pipe.tscn"
 
-const tile_size = 32
+const tile_size = 60
 var created = false
 var pipes = {}
 var map_size
@@ -19,7 +19,7 @@ func replicate(server_data):
 	var rect_size = get_viewport().get_visible_rect().size
 	offset = Vector2(
 		(rect_size.x / 2) - ((map_size / 2) * tile_size),
-		tile_size
+		0
 	)
 	if !created:
 		created = true;

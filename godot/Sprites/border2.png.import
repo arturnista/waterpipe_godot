@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/canos joelho white.png-52d16ec1568a521c8c13bccd596d05f7.stex"
+path="res://.import/border2.png-3fbf2f229a6a707884cf09d0da5acd48.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Canos/canos joelho white.png"
-dest_files=[ "res://.import/canos joelho white.png-52d16ec1568a521c8c13bccd596d05f7.stex" ]
+source_file="res://Sprites/border2.png"
+dest_files=[ "res://.import/border2.png-3fbf2f229a6a707884cf09d0da5acd48.stex" ]
 
 [params]
 

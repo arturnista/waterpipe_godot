@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/game_ui.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Backgrounds/BackGround.jpg" type="Texture" id=2]
+[ext_resource path="res://Sprites/Backgrounds/BackGround game.jpg" type="Texture" id=2]
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
@@ -9,7 +9,8 @@ anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 30.2032, 160.128, 189.873 ]
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -17,25 +18,17 @@ layer = -1
 
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 margin_left = -512.0
-margin_top = -300.0
 margin_right = 512.0
-margin_bottom = 300.0
+margin_bottom = 600.0
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackGround" type="Sprite" parent="CanvasLayer"]
-visible = false
-position = Vector2( 512.342, 300.607 )
-z_index = -5
-texture = ExtResource( 2 )
-
 [node name="Controls" type="Control" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = 152.0
@@ -64,7 +57,7 @@ anchor_right = 1.0
 anchor_bottom = 0.6
 margin_left = -0.132004
 margin_right = -1.0
-margin_bottom = -7.62939e-006
+margin_bottom = -7.62939e-06
 text = "Mouse: Select pipes
 R: Rotate pipes"
 align = 2
@@ -74,24 +67,26 @@ __meta__ = {
 
 [node name="RoomData" type="Control" parent="."]
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -186.948
-margin_top = -152.384
-margin_right = 63.0519
-margin_bottom = -52.3843
+margin_left = -512.0
+margin_top = 448.0
+margin_right = -386.0
+margin_bottom = 548.0
 rect_scale = Vector2( 1.5, 1.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="RoomName" type="Label" parent="RoomData"]
+modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.194
 anchor_top = 0.229
 anchor_right = 0.806
 anchor_bottom = 0.449
-margin_left = 0.0211792
-margin_top = -0.0123672
-margin_right = 0.0211639
-margin_bottom = -0.0123672
+margin_left = -10.8736
+margin_top = 3.58938
+margin_right = 11.0304
+margin_bottom = 3.58941
 text = "Room code: 1"
 align = 1
 valign = 2
@@ -101,12 +96,13 @@ anchor_left = 0.3
 anchor_top = 0.536
 anchor_right = 0.7
 anchor_bottom = 0.886
-margin_left = -0.117043
-margin_top = -0.0316734
-margin_right = -0.11705
-margin_bottom = -0.0316772
+margin_left = -17.8
+margin_top = -0.600002
+margin_right = 18.8
+margin_bottom = -0.599998
 text = "Disconnect"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="RoomData/DisconnectButton" to="." method="_on_DisconnectButton_pressed"]

@@ -14,15 +14,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackGround_2" type="Sprite" parent="Canvas"]
-position = Vector2( 511.997, 300.179 )
+[node name="TextureRect" type="TextureRect" parent="Canvas"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -512.0
+margin_right = 512.0
+margin_bottom = 600.0
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Title" type="Label" parent="Canvas"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -512.0
 margin_top = 97.0
-margin_bottom = -103.0
+margin_right = 512.0
+margin_bottom = 497.0
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -33,16 +42,17 @@ position = Vector2( 512.003, 203.302 )
 texture = ExtResource( 3 )
 
 [node name="BackButton" type="Button" parent="Canvas"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 441.466
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -70.534
 margin_top = 533.665
-margin_right = -487.534
-margin_bottom = -31.3348
+margin_right = 24.466
+margin_bottom = 568.665
 rect_scale = Vector2( 1.5, 1.5 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="Canvas/BackButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="Canvas/BackButton" to="." method="_on_BackButton_pressed"]

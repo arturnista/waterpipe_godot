@@ -3,6 +3,11 @@
 [ext_resource path="res://Sprites/agua.png" type="Texture" id=1]
 
 [node name="Tile" type="StaticBody2D"]
+scale = Vector2( 1.875, 1.875 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 59.988 ],
+"_edit_vertical_guides_": [ 60.0117 ]
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 16, 16 )

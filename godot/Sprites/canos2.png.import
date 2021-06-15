@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/canos reto white.png-ab67e18ab68efa17ce9364d7ce04f6de.stex"
+path="res://.import/canos2.png-1929201af922a7cad112c5f455d4c46c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Canos/canos reto white.png"
-dest_files=[ "res://.import/canos reto white.png-ab67e18ab68efa17ce9364d7ce04f6de.stex" ]
+source_file="res://Sprites/canos2.png"
+dest_files=[ "res://.import/canos2.png-1929201af922a7cad112c5f455d4c46c.stex" ]
 
 [params]
 

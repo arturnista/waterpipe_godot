@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/canos cruzeta green.png-8ec177c41c3f82edb1bca639ff65607e.stex"
+path="res://.import/border3.png-e12ebe27ad6d656a8aa2547065800b6e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Canos/canos cruzeta green.png"
-dest_files=[ "res://.import/canos cruzeta green.png-8ec177c41c3f82edb1bca639ff65607e.stex" ]
+source_file="res://Sprites/border3.png"
+dest_files=[ "res://.import/border3.png-e12ebe27ad6d656a8aa2547065800b6e.stex" ]
 
 [params]
 
