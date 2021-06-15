@@ -3,7 +3,8 @@
 
 ### Godot ###
 
-Build/
+*/Build/
+*/Build_Final/
 
 # Godot-specific ignores
 .import/
