@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/credits_menu.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Credits.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/BackGround_2.jpg" type="Texture" id=3]
+[ext_resource path="res://Sprites/Backgrounds/BackGround_2.jpg" type="Texture" id=2]
+[ext_resource path="res://Sprites/Credits.png" type="Texture" id=3]
 
 [node name="Menu" type="Node"]
 script = ExtResource( 1 )
@@ -16,7 +16,7 @@ __meta__ = {
 
 [node name="BackGround_2" type="Sprite" parent="Canvas"]
 position = Vector2( 511.997, 300.179 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="Title" type="Label" parent="Canvas"]
 anchor_right = 1.0
@@ -30,7 +30,7 @@ __meta__ = {
 
 [node name="Credits" type="Sprite" parent="Canvas/Title"]
 position = Vector2( 512.003, 203.302 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="BackButton" type="Button" parent="Canvas"]
 anchor_right = 1.0
@@ -44,6 +44,5 @@ text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="pressed" from="Canvas/BackButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="Canvas/BackButton" to="." method="_on_BackButton_pressed"]

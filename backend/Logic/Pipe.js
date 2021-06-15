@@ -112,6 +112,7 @@ class Pipe {
             angle: this.angle,
             special: this.special,
             position: this.position,
+            isHold: this.position === 'hold',
             water: this.water ? 1 : 0,
         }
     }

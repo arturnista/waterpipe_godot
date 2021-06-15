@@ -50,11 +50,13 @@ class Game {
                 this.waterTime = 0
                 this.waterPath.start()
                 this.waterStarted = true
+                this.server.broadcast('game-water-start', {})
             }
         } else {
             if (this.waterTime > this.WATER_STEP_TIME) {
                 this.waterTime = 0
                 this.waterPath.step()
+                this.server.broadcast('game-water-step', {})
             }
         }
     }
@@ -88,6 +90,7 @@ class Game {
     freeze() {
         this.engine.log(`GAME | Game freeze!`)
         this.freezeTime = 5
+        this.server.broadcast('game-freeze', {})
     }
 
     state() {

@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/pipe.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/canos.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/special.png" type="Texture" id=3]
+[ext_resource path="res://Sounds/GrabPipe.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/PlacePipe.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/RotatePipe.ogg" type="AudioStream" id=6]
 
 [node name="Pipe" type="StaticBody2D" groups=[
 "player",
@@ -12,10 +15,10 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Sprites" type="Node2D" parent="."]
 position = Vector2( 16, 16 )
 
-[node name="Start" type="Sprite" parent="Node2D"]
+[node name="Start" type="Sprite" parent="Sprites"]
 modulate = Color( 0.12549, 1, 0, 1 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -24,7 +27,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Vertical" type="Sprite" parent="Node2D"]
+[node name="Vertical" type="Sprite" parent="Sprites"]
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 32, 0, 32, 32 )
@@ -32,7 +35,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Curve" type="Sprite" parent="Node2D"]
+[node name="Curve" type="Sprite" parent="Sprites"]
 visible = false
 texture = ExtResource( 2 )
 region_enabled = true
@@ -41,7 +44,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="T" type="Sprite" parent="Node2D"]
+[node name="T" type="Sprite" parent="Sprites"]
 visible = false
 texture = ExtResource( 2 )
 region_enabled = true
@@ -50,7 +53,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="All" type="Sprite" parent="Node2D"]
+[node name="All" type="Sprite" parent="Sprites"]
 visible = false
 texture = ExtResource( 2 )
 region_enabled = true
@@ -69,3 +72,15 @@ region_rect = Rect2( 0, 0, 32, 32 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="GrabPipe" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 4 )
+
+[node name="PlacePipe" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 5 )
+
+[node name="RotatePipe" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 6 )
+volume_db = -7.0

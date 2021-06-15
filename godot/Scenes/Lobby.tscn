@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/lobby_menu.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Lobby.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/BackGround opcoes.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/BackGround.jpg" type="Texture" id=4]
-[ext_resource path="res://Sprites/Backgrounds/BackGround.jpg" type="Texture" id=5]
+[ext_resource path="res://Sprites/Backgrounds/BackGround.jpg" type="Texture" id=2]
+[ext_resource path="res://Sprites/Lobby.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/BackGround opcoes.png" type="Texture" id=4]
 
 [node name="Menu" type="Node"]
 script = ExtResource( 1 )
@@ -25,7 +24,7 @@ margin_left = -512.0
 margin_top = -300.0
 margin_right = 512.0
 margin_bottom = 300.0
-texture = ExtResource( 5 )
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -36,7 +35,7 @@ anchor_right = 0.5
 margin_left = -512.0
 margin_right = 512.0
 margin_bottom = 600.0
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -51,7 +50,7 @@ margin_top = -729.6
 margin_right = 511.711
 margin_bottom = -129.6
 rect_scale = Vector2( 1, 1.434 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -61,22 +60,22 @@ visible = false
 position = Vector2( 512, 300 )
 scale = Vector2( 1, 1.43389 )
 z_as_relative = false
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="BackGround" type="Sprite" parent="Canvas"]
 visible = false
 position = Vector2( 512, 300 )
 z_index = -5
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 
 [node name="Lobby" type="Sprite" parent="Canvas"]
 visible = false
 position = Vector2( 512, 300 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Title" type="Label" parent="Canvas"]
 anchor_right = 1.0
-margin_right = 6.10352e-05
+margin_right = 6.10352e-005
 margin_bottom = 50.0
 align = 1
 __meta__ = {
@@ -209,7 +208,6 @@ __meta__ = {
 }
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
-
 [connection signal="pressed" from="Canvas/CreateControl/CreateRoomBtn" to="." method="_on_CreateRoomBtn_pressed"]
 [connection signal="toggled" from="Canvas/CreateControl/CheckBox" to="." method="_on_CheckBox_toggled"]
 [connection signal="pressed" from="Canvas/ConnectControl/ConnectRoomBtn" to="." method="_on_ConnectRoomBtn_pressed"]

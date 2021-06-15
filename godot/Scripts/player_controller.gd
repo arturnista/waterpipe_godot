@@ -1,7 +1,7 @@
 extends Node
 
 var tilemap = null
-var connection = null
+var websocket = null
 
 var actions = {
 	"select_pipe": false,
@@ -18,7 +18,7 @@ var is_leader = false
 func _ready():
 	add_to_group("player")
 	tilemap = get_node("../Tilemap")
-	connection = get_node("../../Connection")
+	websocket = get_node("../../Connection")
 
 func register(server_data):
 	id = int(server_data.id)
@@ -46,10 +46,10 @@ func _process(delta):
 	
 	if is_leader:
 		if Input.is_action_just_pressed("player_leader_start_game"):
-			connection.send_data("player_leader_start_game", {})
+			websocket.send_data("player_leader_start_game", {})
 			
 		if Input.is_action_just_pressed("player_leader_fast"):
-			connection.send_data("player_leader_fast", {})
+			websocket.send_data("player_leader_fast", {})
 
 	input_emit_time += delta
 	if input_emit_time > input_emit_delay:
@@ -61,7 +61,7 @@ func _process(delta):
 			"y": map_pos.y
 		}
 		
-		connection.send_data("player_input", actions)
+		websocket.send_data("player_input", actions)
 		actions.select_pipe = false
 		actions.rotate_pipe = false
 

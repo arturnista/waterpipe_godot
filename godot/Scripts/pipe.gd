@@ -24,6 +24,8 @@ var pipe_style = null
 var pipe_special = null
 var has_water = false
 
+var last_is_hold = null
+
 var is_draggable = true
 var id = 0
 
@@ -36,16 +38,18 @@ func turn():
 func create(server_data):
 	id = int(server_data.id)
 
-	has_water = false
-	
-	var startNode = get_child(0).get_child(0)
-	var endNode = get_child(0).get_child(0)
-	var verticalNode = get_child(0).get_child(1)
-	var curveNode = get_child(0).get_child(2)
-	var tNode = get_child(0).get_child(3)
-	var allNode = get_child(0).get_child(4)
+	last_is_hold = server_data.isHold
 
-	var specialFreeze = get_node("Special/Freeze")
+	has_water = false
+
+	var startNode = $Sprites/Start
+	var endNode = $Sprites/Start
+	var verticalNode = $Sprites/Vertical
+	var curveNode = $Sprites/Curve
+	var tNode = $Sprites/T
+	var allNode = $Sprites/All
+
+	var specialFreeze = $Special/Freeze
 	
 	startNode.hide()
 	verticalNode.hide()
@@ -104,7 +108,15 @@ func create(server_data):
 
 func replicate(server_data):
 	has_water = int(server_data.water)
+	if server_data.isHold && !last_is_hold:
+		$SFX/PlacePipe.play(0)
+	if !server_data.isHold && last_is_hold:
+		$SFX/GrabPipe.play(0)
+	if sprite.rotation_degrees != server_data.angle:
+		$SFX/RotatePipe.play(0)
+
 	sprite.rotation_degrees = server_data.angle
+	last_is_hold = server_data.isHold
 	update()
 
 	if has_water == 1:

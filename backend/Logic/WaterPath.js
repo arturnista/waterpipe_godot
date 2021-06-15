@@ -9,7 +9,6 @@ class WaterPath {
     }
 
     start() {
-        console.log("Water start")
         const sp = this.map.startPosition
         const tile = this.map.getTileAtPosition(sp.x, sp.y)
         tile.fullWater()
@@ -18,7 +17,6 @@ class WaterPath {
     }
 
     step() {
-        console.log("Water step")
         const tiles = [...this.tiles]
         for (let index = 0; index < tiles.length; index++) {
             const currentTile = tiles[index]

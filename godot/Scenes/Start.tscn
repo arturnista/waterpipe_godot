@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/start_menu.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/titulo.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Backgrounds/BG canos.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Backgrounds/BG canos.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/titulo.png" type="Texture" id=3]
 
 [node name="Menu" type="Node"]
 script = ExtResource( 1 )
@@ -23,7 +23,7 @@ margin_left = -512.0
 margin_top = -300.0
 margin_right = 512.0
 margin_bottom = 300.0
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -42,7 +42,7 @@ __meta__ = {
 [node name="titulo" type="Sprite" parent="Canvas/Title"]
 position = Vector2( 512.666, 301.167 )
 scale = Vector2( 1.00065, 0.999444 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="PlayButton" type="Button" parent="Canvas"]
 light_mask = 0
@@ -89,7 +89,6 @@ text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="pressed" from="Canvas/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Canvas/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="Canvas/ExitButton" to="." method="_on_ExitButton_pressed"]

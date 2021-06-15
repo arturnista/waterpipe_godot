@@ -2,19 +2,25 @@
 
 [ext_resource path="res://Scripts/start_game_button.gd" type="Script" id=1]
 
-[node name="Control" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 2
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -150.0
+margin_right = 150.0
+margin_bottom = 150.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-anchor_top = 0.5
+[node name="Label" type="Label" parent="Control"]
 anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = -5.98462
-margin_bottom = 8.01538
+margin_bottom = 31.0
 text = "You are connected!
 You are the room leader"
 align = 1
@@ -22,17 +28,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="Control"]
 anchor_left = 0.5
-anchor_top = 0.6
 anchor_right = 0.5
-anchor_bottom = 0.6
 margin_left = -100.0
+margin_top = 75.0
 margin_right = 100.0
-margin_bottom = 35.0
+margin_bottom = 135.0
 text = "Start game"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_Button_pressed"]

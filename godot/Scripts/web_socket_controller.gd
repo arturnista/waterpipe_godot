@@ -16,6 +16,7 @@ var tilemap = null
 var player = null
 var game_state = ''
 var user_scene_loaded = null
+var first_state = true
 # Our WebSocketClient instance
 var _client = WebSocketClient.new()
 
@@ -69,6 +70,9 @@ func _on_data():
 			add_child(user_scene_loaded)
 			player.register(message.data)
 		elif message.event == 'gameState':
+			if first_state:
+				first_state = false
+				$SFX/GameMusic.play(0)
 
 			var player_received
 			for player_it in message.data.players:
@@ -86,9 +90,17 @@ func _on_data():
 				tilemap.replicate(message.data.map)
 				player.replicate(player_received)
 			if game_state == "WIN":
+				first_state = true
 				get_tree().change_scene(WIN_SCENE)
 			if game_state == "LOSE":
+				first_state = true
 				get_tree().change_scene(LOSE_SCENE)
+		elif message.event == 'game-freeze':
+			$SFX/GameFreeze.play(0)
+		elif message.event == 'game-water-start':
+			$SFX/GameWaterStep.play(0)
+		elif message.event == 'game-water-step':
+			$SFX/GameWaterStep.play(0)
 
 func _process(delta):
 	# emission will only happen when calling this function.
