@@ -107,10 +107,11 @@ anchor_left = 0.5
 anchor_top = 0.522
 anchor_right = 0.875
 anchor_bottom = 0.608
-margin_top = 0.160004
+margin_top = 0.160019
 margin_right = -64.0
 margin_bottom = -11.96
 rect_scale = Vector2( 1.5, 1.5 )
+pressed = true
 text = "Remote server?"
 __meta__ = {
 "_edit_use_anchors_": false

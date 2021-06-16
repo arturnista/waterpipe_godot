@@ -9,5 +9,4 @@ func _ready():
 	websocket = get_node("../Connection")
 
 func _on_DisconnectButton_pressed():
-	connection.send_data("player_leader_start_game", {})
 	websocket.close_connection()

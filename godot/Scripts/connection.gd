@@ -21,7 +21,7 @@ var remote = {
 var current_url = {}
 
 func _ready():
-	current_url = local
+	current_url = remote
 
 func set_is_remote(data):
 	print(data);
