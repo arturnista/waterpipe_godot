@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/pipe.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/canos.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/special.png" type="Texture" id=3]
-[ext_resource path="res://Sounds/GrabPipe.ogg" type="AudioStream" id=4]
-[ext_resource path="res://Sounds/PlacePipe.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Sounds/RotatePipe.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/tira-bota_cano-001.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/tira-bota_cano-002.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/cano_vira-001.wav" type="AudioStream" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "GrabPipe"
+
+[sub_resource type="Animation" id=2]
+resource_name = "Init"
 
 [node name="Pipe" type="StaticBody2D" groups=[
 "player",
@@ -20,6 +26,7 @@ __meta__ = {
 }
 
 [node name="Sprites" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 16, 16 )
 
 [node name="Start" type="Sprite" parent="Sprites"]
@@ -74,6 +81,7 @@ __meta__ = {
 }
 
 [node name="Special" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 16, 16 )
 
 [node name="Freeze" type="Sprite" parent="Special"]
@@ -100,3 +108,9 @@ volume_db = -5.0
 [node name="RotatePipe" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 6 )
 volume_db = -5.0
+
+[node name="Animation" type="Node" parent="."]
+
+[node name="Grab" type="AnimationPlayer" parent="Animation"]
+anims/GrabPipe = SubResource( 1 )
+anims/Init = SubResource( 2 )

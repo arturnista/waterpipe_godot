@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/lobby_menu.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Backgrounds/BackGround.jpg" type="Texture" id=2]
 [ext_resource path="res://Sprites/Lobby.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/BackGround opcoes.png" type="Texture" id=4]
-[ext_resource path="res://Sounds/TRILHA GABRIEL.mp3" type="AudioStream" id=5]
 
 [node name="Menu" type="Node"]
 script = ExtResource( 1 )
@@ -185,12 +184,6 @@ __meta__ = {
 }
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-volume_db = -25.0
-autoplay = true
-
 [connection signal="pressed" from="Canvas/CreateControl/CreateRoomBtn" to="." method="_on_CreateRoomBtn_pressed"]
 [connection signal="toggled" from="Canvas/CreateControl/CheckBox" to="." method="_on_CheckBox_toggled"]
 [connection signal="pressed" from="Canvas/ConnectControl/ConnectRoomBtn" to="." method="_on_ConnectRoomBtn_pressed"]

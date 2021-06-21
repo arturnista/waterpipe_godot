@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Sounds/UIClick.ogg" type="AudioStream" id=1]
-[ext_resource path="res://Sounds/UIConfirmation.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/BOTÃO 1.wav" type="AudioStream" id=1]
+[ext_resource path="res://Sounds/menu (1).wav" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/UIConfirmation.ogg" type="AudioStream" id=3]
 
 [node name="SFX" type="Node"]
 
@@ -9,6 +10,11 @@
 stream = ExtResource( 1 )
 volume_db = -7.0
 
-[node name="UIConfirmation" type="AudioStreamPlayer" parent="."]
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+volume_db = -7.0
+autoplay = true
+
+[node name="UIConfirmation" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 volume_db = -3.0

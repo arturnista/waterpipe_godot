@@ -3,10 +3,10 @@
 [ext_resource path="res://Scripts/web_socket_controller.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/tilemap.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/player_controller.gd" type="Script" id=3]
-[ext_resource path="res://Sounds/GameFreeze.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/POWER UP.wav" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/GameMusic.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Sounds/GameWaterStep.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Sounds/PlayerPlaceError.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/ÁGUA 1.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/cano erro-001.wav" type="AudioStream" id=7]
 [ext_resource path="res://Elements/UI_Game.tscn" type="PackedScene" id=8]
 
 [node name="World" type="Node"]

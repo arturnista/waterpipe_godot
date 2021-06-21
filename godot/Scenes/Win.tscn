@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprites/titulo.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/you win.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/player_restart.gd" type="Script" id=4]
-[ext_resource path="res://Sounds/GameWin.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/WIN.wav" type="AudioStream" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
