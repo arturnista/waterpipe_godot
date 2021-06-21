@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cano erro-002.wav-64743f127b1216a905f96c8f1dfc2f85.sample"
+
+[deps]
+
+source_file="res://Sounds/cano erro-002.wav"
+dest_files=[ "res://.import/cano erro-002.wav-64743f127b1216a905f96c8f1dfc2f85.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

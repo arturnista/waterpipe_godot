@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tira-bota_cano-002.wav-86da85c33f1e6753757767ce5462b99a.sample"
+
+[deps]
+
+source_file="res://Scripts/tira-bota_cano-002.wav"
+dest_files=[ "res://.import/tira-bota_cano-002.wav-86da85c33f1e6753757767ce5462b99a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

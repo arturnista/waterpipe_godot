@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Abre_registro.wav-4804af733fda36790a407dd334747155.sample"
+
+[deps]
+
+source_file="res://Sounds/Abre_registro.wav"
+dest_files=[ "res://.import/Abre_registro.wav-4804af733fda36790a407dd334747155.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

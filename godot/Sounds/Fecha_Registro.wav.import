@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Fecha_Registro.wav-6a0f753a9eba841cd20507f4d1a3f1b9.sample"
+
+[deps]
+
+source_file="res://Sounds/Fecha_Registro.wav"
+dest_files=[ "res://.import/Fecha_Registro.wav-6a0f753a9eba841cd20507f4d1a3f1b9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
