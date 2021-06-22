@@ -110,8 +110,10 @@ func replicate(server_data):
 	has_water = int(server_data.water)
 	if server_data.isHold && !last_is_hold:
 		$SFX/PlacePipe.play(0)
+		$Animation/Grab.play("GrabPipe");
 	if !server_data.isHold && last_is_hold:
 		$SFX/GrabPipe.play(0)
+		$Animation/Grab.play("GrabPipe");
 	if sprite.rotation_degrees != server_data.angle:
 		$SFX/RotatePipe.play(0)
 

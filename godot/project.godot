@@ -15,9 +15,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="agua_multiplayer_godot"
+config/name="Pumpling Crash"
 run/main_scene="res://Scenes/Start.tscn"
-config/icon="res://icon.png"
+config/icon="res://Sprites/agua.png"
 
 [autoload]
 

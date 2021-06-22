@@ -97,6 +97,8 @@ func _on_data():
 				get_tree().change_scene(LOSE_SCENE)
 		elif message.event == 'game-freeze':
 			$SFX/GameFreeze.play(0)
+			$Effect/Freeze.emitting = true
+			print("FREEZE")
 		elif message.event == 'game-water-start':
 			$SFX/GameWaterStep.play(0)
 		elif message.event == 'game-water-step':

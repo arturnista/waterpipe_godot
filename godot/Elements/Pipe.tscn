@@ -9,9 +9,35 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "GrabPipe"
+length = 0.3
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprites:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.12, 0.21, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 0.7 ), Vector2( 0.7, 1.5 ), Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Init"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprites:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
 
 [node name="Pipe" type="StaticBody2D" groups=[
 "player",
@@ -112,5 +138,6 @@ volume_db = -5.0
 [node name="Animation" type="Node" parent="."]
 
 [node name="Grab" type="AnimationPlayer" parent="Animation"]
+autoplay = "Init"
 anims/GrabPipe = SubResource( 1 )
 anims/Init = SubResource( 2 )
