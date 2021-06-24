@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/credits_menu.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Backgrounds/BackGround_2.jpg" type="Texture" id=2]
 [ext_resource path="res://Sprites/Credits.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/menu (1).wav" type="AudioStream" id=4]
+[ext_resource path="res://My_theme.tres" type="Theme" id=5]
+[ext_resource path="res://My_font_Creditos.tres" type="DynamicFont" id=6]
 
 [node name="Menu" type="Node"]
 script = ExtResource( 1 )
@@ -42,14 +44,35 @@ __meta__ = {
 position = Vector2( 512.003, 203.302 )
 texture = ExtResource( 3 )
 
+[node name="Label" type="Label" parent="Canvas"]
+margin_left = 113.0
+margin_top = 187.0
+margin_right = 911.0
+margin_bottom = 569.0
+custom_fonts/font = ExtResource( 6 )
+text = "Plumbing Crash
+
+Desenvolvedores :
+Artur Morelle Nista
+Anderson Bendo Domingues
+
+Fonografia :
+Gabriel Fagundes Lucas
+Gustavo Felipe Sá Brito
+Diego Sabala Gomes"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="BackButton" type="Button" parent="Canvas"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -70.534
-margin_top = 533.665
-margin_right = 24.466
-margin_bottom = 568.665
-rect_scale = Vector2( 1.5, 1.5 )
+margin_left = -101.5
+margin_top = 528.0
+margin_right = 102.5
+margin_bottom = 588.0
+theme = ExtResource( 5 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -60,5 +83,5 @@ stream = ExtResource( 4 )
 volume_db = -25.0
 autoplay = true
 
-[connection signal="pressed" from="Canvas/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="Canvas/BackButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="Canvas/BackButton" to="." method="_on_BackButton_pressed"]

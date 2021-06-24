@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/start_game_button.gd" type="Script" id=1]
+[ext_resource path="res://My_theme.tres" type="Theme" id=2]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 2
@@ -20,7 +21,11 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Control"]
 anchor_right = 1.0
-margin_bottom = 31.0
+margin_left = 1.68176
+margin_top = 1.68179
+margin_right = 1.68176
+margin_bottom = 32.6818
+theme = ExtResource( 2 )
 text = "You are connected!
 You are the room leader"
 align = 1
@@ -35,9 +40,11 @@ margin_left = -100.0
 margin_top = 75.0
 margin_right = 100.0
 margin_bottom = 135.0
+theme = ExtResource( 2 )
 text = "Start game"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_Button_pressed"]

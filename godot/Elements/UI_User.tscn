@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://My_theme.tres" type="Theme" id=1]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 2
@@ -19,6 +21,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Control"]
 anchor_right = 1.0
 margin_bottom = 31.0
+theme = ExtResource( 1 )
 text = "You are connected!
 Waiting for the leader to start the match"
 align = 1

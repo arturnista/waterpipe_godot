@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TRILHA GABRIEL.mp3-e038ddf2732b2cfd6c80cd91100a207f.mp3str"
+
+[deps]
+
+source_file="res://Sounds/TRILHA GABRIEL.mp3"
+dest_files=[ "res://.import/TRILHA GABRIEL.mp3-e038ddf2732b2cfd6c80cd91100a207f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
