@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/Credits.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/menu (1).wav" type="AudioStream" id=4]
 [ext_resource path="res://My_theme.tres" type="Theme" id=5]
-[ext_resource path="res://My_font_Creditos.tres" type="DynamicFont" id=6]
+[ext_resource path="res://fonts/My_font_Creditos.tres" type="DynamicFont" id=6]
 
 [node name="Menu" type="Node"]
 script = ExtResource( 1 )

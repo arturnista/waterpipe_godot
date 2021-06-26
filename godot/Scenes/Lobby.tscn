@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/lobby_menu.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Backgrounds/BackGround.jpg" type="Texture" id=2]
 [ext_resource path="res://Sprites/Lobby.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Backgrounds/BackGround opcoes.png" type="Texture" id=4]
 [ext_resource path="res://My_theme.tres" type="Theme" id=5]
-[ext_resource path="res://My_font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://fonts/My_font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Sprites/Buttons/Check 2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Buttons/Uncheck 2.png" type="Texture" id=8]
 
 [node name="Menu" type="Node"]
 script = ExtResource( 1 )
@@ -45,9 +47,9 @@ __meta__ = {
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -512.0
-margin_top = -128.709
+margin_top = -129.0
 margin_right = 512.0
-margin_bottom = 471.291
+margin_bottom = 471.0
 rect_scale = Vector2( 1, 1.434 )
 theme = ExtResource( 5 )
 texture = ExtResource( 4 )
@@ -69,9 +71,10 @@ __meta__ = {
 [node name="CreateControl" type="Control" parent="Canvas"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -512.0
-margin_top = 180.0
-margin_bottom = 600.0
+margin_left = -524.952
+margin_top = 178.811
+margin_right = -12.9516
+margin_bottom = 598.811
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -81,10 +84,10 @@ anchor_left = 0.341
 anchor_top = 0.238
 anchor_right = 0.743
 anchor_bottom = 0.288
-margin_left = 2.85275
-margin_top = -12.6325
-margin_right = 27.0288
-margin_bottom = -1.63254
+margin_left = 2.85301
+margin_top = -21.366
+margin_right = 27.0291
+margin_bottom = -10.366
 theme = ExtResource( 5 )
 text = "Create a new room"
 align = 1
@@ -97,10 +100,10 @@ anchor_left = 0.37
 anchor_top = 0.345
 anchor_right = 0.769
 anchor_bottom = 0.488
-margin_left = 0.212265
-margin_top = -0.0998383
-margin_right = -0.0757446
-margin_bottom = -0.159851
+margin_left = 0.212006
+margin_top = -5.82599
+margin_right = -0.0760193
+margin_bottom = -5.886
 theme = ExtResource( 5 )
 text = "Create"
 __meta__ = {
@@ -112,10 +115,12 @@ anchor_left = 0.544
 anchor_top = 0.512
 anchor_right = 0.976
 anchor_bottom = 0.608
-margin_left = -0.0239868
-margin_top = -0.0944824
-margin_right = -0.208008
-margin_bottom = -0.414459
+margin_left = 1.03497
+margin_top = 6.26201
+margin_right = 10.851
+margin_bottom = 5.94203
+custom_icons/checked = ExtResource( 8 )
+custom_icons/unchecked = ExtResource( 7 )
 custom_fonts/font = ExtResource( 6 )
 pressed = true
 text = "Remote server?"
@@ -126,9 +131,10 @@ __meta__ = {
 [node name="ConnectControl" type="Control" parent="Canvas"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_top = 180.0
-margin_right = 512.0
-margin_bottom = 600.0
+margin_left = 0.353516
+margin_top = 178.811
+margin_right = 512.354
+margin_bottom = 598.811
 theme = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -159,6 +165,7 @@ margin_top = 1.31352
 margin_right = -1.22931
 margin_bottom = 1.31352
 theme = ExtResource( 5 )
+align = 1
 placeholder_text = "Code"
 __meta__ = {
 "_edit_use_anchors_": false

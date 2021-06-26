@@ -1,9 +1,12 @@
-[gd_resource type="Theme" load_steps=5 format=2]
+[gd_resource type="Theme" load_steps=8 format=2]
 
-[ext_resource path="res://My_font.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Button t2 1.tres" type="StyleBox" id=2]
-[ext_resource path="res://Button t2 2.tres" type="StyleBox" id=3]
-[ext_resource path="res://Button t2 3.tres" type="StyleBox" id=4]
+[ext_resource path="res://fonts/My_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Sprites/Buttons/Button t2 1.tres" type="StyleBox" id=2]
+[ext_resource path="res://Sprites/Buttons/Button t2 2.tres" type="StyleBox" id=3]
+[ext_resource path="res://Sprites/Buttons/Button t2 3.tres" type="StyleBox" id=4]
+[ext_resource path="res://Sprites/Buttons/Check 2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Buttons/Uncheck 2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Buttons/Input.tres" type="StyleBox" id=7]
 
 [resource]
 default_font = ExtResource( 1 )
@@ -26,10 +29,10 @@ CheckBox/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 CheckBox/constants/check_vadjust = 0
 CheckBox/constants/hseparation = 4
 CheckBox/fonts/font = null
-CheckBox/icons/checked = null
+CheckBox/icons/checked = ExtResource( 6 )
 CheckBox/icons/radio_checked = null
 CheckBox/icons/radio_unchecked = null
-CheckBox/icons/unchecked = null
+CheckBox/icons/unchecked = ExtResource( 5 )
 CheckBox/styles/disabled = null
 CheckBox/styles/focus = null
 CheckBox/styles/hover = null
@@ -46,6 +49,6 @@ LineEdit/colors/selection_color = Color( 0.49, 0.49, 0.49, 1 )
 LineEdit/constants/minimum_spaces = 12
 LineEdit/fonts/font = null
 LineEdit/icons/clear = null
-LineEdit/styles/focus = null
-LineEdit/styles/normal = null
-LineEdit/styles/read_only = null
+LineEdit/styles/focus = ExtResource( 7 )
+LineEdit/styles/normal = ExtResource( 7 )
+LineEdit/styles/read_only = ExtResource( 7 )
