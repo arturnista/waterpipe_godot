@@ -57,9 +57,10 @@ Artur Morelle Nista
 Anderson Bendo Domingues
 
 Fonografia :
+Diego Sabala Gomes
 Gabriel Fagundes Lucas
 Gustavo Felipe Sá Brito
-Diego Sabala Gomes"
+Pedro Monteiro Acosta"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -68,10 +69,10 @@ __meta__ = {
 [node name="BackButton" type="Button" parent="Canvas"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -101.5
-margin_top = 528.0
-margin_right = 102.5
-margin_bottom = 588.0
+margin_left = -97.932
+margin_top = 531.0
+margin_right = 106.068
+margin_bottom = 591.0
 theme = ExtResource( 5 )
 text = "Back"
 __meta__ = {
@@ -80,8 +81,8 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -25.0
+volume_db = 1.0
 autoplay = true
 
-[connection signal="pressed" from="Canvas/BackButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="Canvas/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="Canvas/BackButton" to="." method="_on_ExitButton_pressed"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/TRILHA GABRIEL.ogg-9f04f3a3d4eaa3a840e4f347000de5dc.oggstr"
+
+[deps]
+
+source_file="res://Sounds/TRILHA GABRIEL.ogg"
+dest_files=[ "res://.import/TRILHA GABRIEL.ogg-9f04f3a3d4eaa3a840e4f347000de5dc.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

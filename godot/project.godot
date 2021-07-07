@@ -16,7 +16,7 @@ _global_script_class_icons={
 
 config/name="Pumpling Crash"
 run/main_scene="res://Scenes/Start.tscn"
-config/icon="res://Sprites/agua.png"
+config/icon="res://icon.png"
 
 [autoload]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/lobby_menu.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Backgrounds/BackGround.jpg" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://fonts/My_font.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Sprites/Buttons/Check 2.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Buttons/Uncheck 2.png" type="Texture" id=8]
+[ext_resource path="res://Sounds/TRILHA GABRIEL.ogg" type="AudioStream" id=9]
 
 [node name="Menu" type="Node"]
 script = ExtResource( 1 )
@@ -199,6 +200,11 @@ __meta__ = {
 }
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = 1.0
+autoplay = true
 
 [connection signal="pressed" from="Canvas/CreateControl/CreateRoomBtn" to="." method="_on_CreateRoomBtn_pressed"]
 [connection signal="toggled" from="Canvas/CreateControl/CheckBox" to="." method="_on_CheckBox_toggled"]
